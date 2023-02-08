@@ -35,7 +35,6 @@ const MovieReview = () => {
     };
   }, [id]);
 
-  console.log(reviews.length);
   return isLoad ? (
     <Loader />
   ) : reviews.length === 0 ? (

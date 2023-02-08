@@ -15,7 +15,6 @@ const Review = () => {
 
   const location = useRef(useLocation());
   const backLinkUrl = location.current.state?.from ?? '/movies';
-  console.log(typeof backLinkUrl);
 
   useEffect(() => {
     setIsLoad(true);
