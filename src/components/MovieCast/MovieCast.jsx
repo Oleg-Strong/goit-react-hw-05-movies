@@ -4,7 +4,8 @@ import { getMovieCast } from 'components/utils/api-servises';
 import { checkImg } from 'components/utils/checkImg';
 import Loader from 'components/Loader';
 import Warning from 'components/Warning';
-import notify from '../utils/alert';
+import notify from 'components/utils/alert';
+import checkCasts from 'components/utils/checkCast';
 import { List, Item, Photo, Rol } from './MovieCast.styled';
 
 const MovieCast = () => {
@@ -16,10 +17,12 @@ const MovieCast = () => {
   useEffect(() => {
     const controllerMovieCast = new AbortController();
     const signal = controllerMovieCast.signal;
+
     setIsLoad(true);
     getMovieCast(idToNumber, signal)
       .then(({ cast }) => {
-        setCasts(cast);
+        const filteredCasts = checkCasts(cast);
+        setCasts(filteredCasts);
       })
       .catch(error => {
         if (error.response) {

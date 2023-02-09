@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, Suspense } from 'react';
 import { useParams, Outlet, useLocation } from 'react-router-dom';
 import { getMovieInfo } from 'components/utils/api-servises';
 import MovieCard from 'components/MovieCard';
@@ -51,7 +51,9 @@ const Review = () => {
         <>
           <MovieCard movie={movie} />
           <Navigate />
-          <Outlet />
+          <Suspense fallback={<Loader />}>
+            <Outlet />
+          </Suspense>
         </>
       )}
       <Scroll />
