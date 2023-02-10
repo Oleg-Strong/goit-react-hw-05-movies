@@ -1,4 +1,16 @@
 import styled from '@emotion/styled';
+const reatingColor = value => {
+  let normalazedValue = Number(value.slice(0, -1));
+
+  if (normalazedValue <= 40) {
+    return 'rgb(255, 0, 0)';
+  } else if (normalazedValue > 40 && normalazedValue < 70) {
+    return 'rgb(255, 247, 0)';
+  } else if (normalazedValue >= 70) {
+    return 'rgb(87, 217, 0)';
+  }
+};
+
 export const Card = styled.div`
   display: flex;
   align-items: center;
@@ -35,12 +47,13 @@ export const CategoryText = styled.p`
   font-weight: 500;
   color: rgb(0, 0, 0);
 `;
-export const Ganres = styled.span`
+export const Score = styled.span`
   padding: 5px;
   font-size: 20px;
   color: #000000;
   text-shadow: none;
-  background-color: #5bf713;
+  background-color: ${props => reatingColor(props.score)};
+
   border-radius: 7px;
 `;
 

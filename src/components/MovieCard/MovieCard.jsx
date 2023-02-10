@@ -5,7 +5,7 @@ import {
   Picture,
   MovieTitle,
   CategoryTitle,
-  Ganres,
+  Score,
   CategoryText,
 } from './MovieCard.styied';
 
@@ -36,7 +36,7 @@ const MovieCard = ({
         <CategoryTitle>Ganres: </CategoryTitle>
         <CategoryText>{filmGenres}</CategoryText>
         <CategoryTitle>
-          User Score: <Ganres>{userScore}</Ganres>
+          User Score: <Score score={userScore}>{userScore}</Score>
         </CategoryTitle>
       </div>
     </Card>
@@ -45,7 +45,7 @@ const MovieCard = ({
 export default MovieCard;
 MovieCard.propTypes = {
   movie: PropTypes.shape({
-    poster_path: PropTypes.string.isRequired,
+    poster_path: PropTypes.string,
     title: PropTypes.string.isRequired,
     overview: PropTypes.string.isRequired,
     genres: PropTypes.array.isRequired,
