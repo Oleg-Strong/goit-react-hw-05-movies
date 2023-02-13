@@ -42,7 +42,7 @@ const MovieCast = () => {
 
   return isLoad ? (
     <Loader />
-  ) : casts === 0 ? (
+  ) : casts.length === 0 ? (
     <Warning>We don't have any casts for this movie.</Warning>
   ) : (
     <List>
